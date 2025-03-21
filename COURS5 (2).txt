@@ -1,0 +1,2456 @@
+_________Problem[1]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void MultiplicationHeader() {
+	cout << "\n              MULTIPLICATION TEBEL FROM 1 TO 10" << endl;
+	cout << "\n          1     2     3     4     5     6     7     8     9    10" << endl;
+	cout << "\n__________________________________________________________________" << endl;
+
+}
+string ColumeSeperator(short Number) {
+	return (Number < 10) ? "   |" : "  |";
+}
+void Multiplication() {
+	MultiplicationHeader();
+	for (short i = 1;i <= 10;i++)
+	{
+		cout << i << ColumeSeperator(i);
+		for (short j = 1;j <= 10;j++)
+		{
+			cout << setw(6) << i * j;
+		}
+		cout << endl;
+	}
+	cout << "\n__________________________________________________________________" << endl;
+}
+int main()
+{
+	Multiplication();
+}
+_________Problem[2]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	do
+	{
+		cout << "\nEnter the Number : ";
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+bool IsPrimeNumber(int& Number) {
+	for (int i = 2;i <= Number / 2;i++)
+	{
+		if (Number % i == 0)
+			return false;
+	}
+	return true;
+}
+void PrintAllNumbersFrom1ToN(int Number) {
+	for (int i = 1;i <= Number;i++) {
+		if (IsPrimeNumber(i))
+			cout << i << endl;
+	}
+}
+int main()
+{
+	PrintAllNumbersFrom1ToN(ReadPositveNumber());
+}
+_________Problem[3]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	do
+	{
+		cout << "\nEnter the Number : ";
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int GetSumOfAllDevisors(int Number) {
+	int Sum = 0;
+	for (short i = 1;i < Number;i++)
+	{
+		if (Number % i == 0)
+			Sum += i;
+	}
+	return Sum;
+}
+bool IsPerfectNumber(int Sum, int &Number) {
+	return (Sum == Number);
+}
+void PrintResult() {
+	int Number = ReadPositveNumber();
+	if (IsPerfectNumber(GetSumOfAllDevisors(Number), Number))
+		cout << "\nYes it's a perfect number" << endl;
+	else
+		cout << "\nNo it's not a perfect number" << endl;
+}
+int main()
+{
+	PrintResult();
+	
+}
+_________Problem[4]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	do
+	{
+		cout << "\nEnter the Number : ";
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int GetSumOfAllDevisors(int Number) {
+	int Sum = 0;
+	for (short i = 1;i < Number;i++)
+	{
+		if (Number % i == 0)
+			Sum += i;
+	}
+	return Sum;
+}
+bool IsPerfectNumber(int Sum, int &Number) {
+	return (Sum == Number);
+}
+void PrintPerfectNumbers() {
+	int Number = ReadPositveNumber();
+	for (int i = 1;i <= Number;i++)
+	{
+		if (IsPerfectNumber(GetSumOfAllDevisors(i), i))
+			cout << i << endl;
+	}
+}
+int main()
+{
+	PrintPerfectNumbers();
+	
+}
+_________Problem[5]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	do
+	{
+		cout << "\nEnter the Number : ";
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+void PrintNumberInReversedOrder(int Number) {
+	short Reminder = 0;
+	while (Number > 0)
+	{
+		Reminder = Number % 10;
+		cout << Reminder << endl;
+		Number /= 10;
+	}
+}
+int main()
+{
+	PrintNumberInReversedOrder(ReadPositveNumber());
+	
+}
+_________Problem[6]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	do
+	{
+		cout << "\nEnter the Number : ";
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int  SumOfDegites(int Number) {
+	short Reminder = 0;
+	short Sum = 0;
+	while (Number > 0)
+	{
+		Reminder = Number % 10;
+		Sum += Reminder;
+		Number /= 10;
+	}
+	return Sum;
+}
+void PrintSumOfDegits(short Sum) {
+	cout << "\nThe sum of all degits is : " << Sum;
+}
+int main()
+{
+	PrintSumOfDegits(SumOfDegites(ReadPositveNumber()));
+	
+}
+_________Problem[7]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	do
+	{
+		cout << "\nEnter the Number : ";
+		cin >> Number;
+	} while (Number <= 0);
+	return Number;
+}
+int ReversNumber(int Number) {
+	string sNumber = to_string(Number);
+	string ReversedNumber = "";
+	for (short i = sNumber.length()-1;i >=0 ;i--)
+	{
+		ReversedNumber += sNumber[i];
+	}
+	Number = stoi(ReversedNumber);
+	return Number;
+}
+void PrintReversedNumber(int ReversedNumber) {
+	cout << "\nThe reversed number is : " << ReversedNumber << endl;
+}
+int main()
+{
+	PrintReversedNumber(ReversNumber(ReadPositveNumber()));
+	
+}
+_________Problem[8]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	
+	
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	
+	return Number;
+}
+short ReadDegite() {
+	short Degite = 0;
+	do {
+		cout << "\nEnter the degite you want to check its frequency : ";
+		cin >> Degite;
+	} while (Degite < 0 || Degite>9);
+	return Degite;
+}
+short GetDegitFrequencyInNumber(int Number,short Degit) {
+	short Reminder = 0;
+	short Counter = 0;
+	while (Number > 0)
+	{
+		Reminder = Number % 10;
+		if (Degit == Reminder)
+			Counter++;
+		Number /= 10;
+	}
+	return Counter;
+}
+void PrintDegitFrequency() {
+	int Number = ReadPositveNumber();
+	short Degit = ReadDegite();
+	cout << "\n The Degit " << Degit << " is repeated in number " << Number << " : " << GetDegitFrequencyInNumber(Number, Degit)
+		<< " Time(s)" << endl;
+}
+int main()
+{
+	PrintDegitFrequency();
+	
+}
+_________Problem[9]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	
+	
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	
+	return Number;
+}
+
+short GetDegitFrequencyInNumber(int Number,short Degit) {
+	short Reminder = 0;
+	short Counter = 0;
+	while (Number > 0)
+	{
+		Reminder = Number % 10;
+		if (Degit == Reminder)
+			Counter++;
+		Number /= 10;
+	}
+	return Counter;
+}
+void PrintDegitsFrequency() {
+	int Number = ReadPositveNumber();
+	short Frequency = 0;
+	for (short i = 0;i <= 9;i++)
+	{
+		Frequency = GetDegitFrequencyInNumber(Number, i);
+		if (Frequency > 0)
+		{
+			cout << "\nthe degit " << i << " is repeated " << Frequency << " time(s)" << endl;
+		}
+	}
+}
+int main()
+{
+	PrintDegitsFrequency();
+	
+}
+_________Problem[10]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	
+	
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	
+	return Number;
+}
+int ReversNumber(int Number) {
+	string sNumber = to_string(Number);
+	string ReversedNumber = "";
+	for (short i = sNumber.length() - 1;i >= 0;i--)
+	{
+		ReversedNumber += sNumber[i];
+	}
+	Number = stoi(ReversedNumber);
+	return Number;
+}
+void Print(int &Number) {
+	short Reminder = 0;
+	while (Number > 0)
+	{
+		Reminder = Number % 10;
+		cout << Reminder << endl;
+		Number /= 10;
+	}
+}
+void PrintNumberDegitsInOrder() {
+	int Number = ReadPositveNumber();
+	Number = ReversNumber(Number);
+	Print(Number);
+}
+int main()
+{
+	PrintNumberDegitsInOrder();
+	
+}
+_________Problem[11]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int ReadPositveNumber() {
+	int Number = 0;
+	
+	
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	
+	return Number;
+}
+int ReversNumber(int Number) {
+	string sNumber = to_string(Number);
+	string ReversedNumber = "";
+	for (short i = sNumber.length() - 1;i >= 0;i--)
+	{
+		ReversedNumber += sNumber[i];
+	}
+	Number = stoi(ReversedNumber);
+	return Number;
+}
+bool IsPalindromNumber(int Number, int ReversedNumber) {
+	return (Number == ReversedNumber);
+}
+void PrintResult() {
+	int Number = ReadPositveNumber();
+	if (IsPalindromNumber(Number, ReversNumber(Number)))
+		cout << "\nYes the number is Palindrom" << endl;
+	else
+		cout << "\nNo the number is not Palindrom" << endl;
+}
+int main()
+{
+	
+	PrintResult();
+}
+_________Problem[12]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+short  ReadPositveNumber() {
+	short Number = 0;
+	
+	do {
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	} while (Number <= 0 || Number > 10);
+	return Number;
+}
+void PrintInvertedNumberPattern(short Number) {
+	for (short i = Number;i > 0;i--)
+	{
+		for (short j = i;j >0;j--)
+		{
+			cout << i ;
+		}
+		cout << endl;
+	}
+}
+int main()
+{
+	PrintInvertedNumberPattern(ReadPositveNumber());
+	
+}
+_________Problem[13]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+short  ReadPositveNumber() {
+	short Number = 0;
+	
+	do {
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	} while (Number <= 0 || Number > 10);
+	return Number;
+}
+void PrintInvertedNumberPattern(short Number) {
+	for (short i = 1;i <=Number;i++)
+	{
+		for (short j = i;j >0;j--)
+		{
+			cout << i ;
+		}
+		cout << endl;
+	}
+}
+int main()
+{
+	PrintInvertedNumberPattern(ReadPositveNumber());
+	
+}
+
+_________Problem[14]_________:
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+short  ReadPositveNumber() {
+	short Number = 0;
+	
+	do {
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	} while (Number <= 0||Number>26 );
+	return Number;
+}
+void PrintInvertedLetterPattern(short Number) {
+	for (short i = 64 + Number;i >= 65;i--)
+	{
+		for (short j = i;j >= 65;j--)
+		{
+			cout << char(i);
+		}
+		cout << endl;
+    }
+}
+int main()
+{
+	PrintInvertedLetterPattern(ReadPositveNumber());
+	
+}
+
+_________Problem[15]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+short  ReadPositveNumber() {
+	short Number = 0;
+	
+	do {
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	} while (Number <= 0||Number>26 );
+	return Number;
+}
+void PrintLetterPattern(short Number) {
+	for (short i = 65;i <Number+65;i++)
+	{
+		for (short j = 65;j<=i;j++)
+		{
+			cout << char(i);
+		}
+		cout << endl;
+    }
+}
+int main()
+{
+	PrintLetterPattern(ReadPositveNumber());
+	
+}
+_________Problem[16]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+short  ReadPositveNumber() {
+	short Number = 0;
+	
+	do {
+		cout << "\nEnter the number : " << endl;
+		cin >> Number;
+	} while (Number <= 0||Number>26 );
+	return Number;
+}
+void PrintFromAAAToZZZ() {
+	string Word = "";
+	for (short i = 65;i <=90;i++)
+	{
+		for (short j = 65;j<=90;j++)
+		{
+			for (short k = 65;k <= 90;k++)
+			{
+				Word += char(i) ;
+				Word += char(j);
+				Word += char(k);
+				cout << Word << endl;
+				Word = "";
+			}
+		}
+		
+    }
+}
+int main()
+{
+	PrintFromAAAToZZZ();
+	
+}
+_________Problem[17]_________:
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+//short  ReadPositveNumber() {
+//	short Number = 0;
+//	
+//	do {
+//		cout << "\nEnter the number : " << endl;
+//		cin >> Number;
+//	} while (Number <= 0||Number>26 );
+//	return Number;
+//}
+bool IsThePassWordCapital(string& PassWord) {
+	for (short i = 0;i < PassWord.length();i++)
+	{
+		if (islower(PassWord[i]))
+			return false;
+	}
+	return true;
+}
+string ReadPassWordAllCapital() {
+	string PassWord = "";
+	do {
+		cout << "\nEnter the password : ";
+		cin >> PassWord;
+	} while (!IsThePassWordCapital(PassWord));
+	return PassWord;
+}
+
+void GussPassWord(string PassWord) {
+	string Word = "";
+	short Counter = 1;
+	for (short i = 65;i <=90;i++)
+	{
+		for (short j = 65;j<=90;j++)
+		{
+			for (short k = 65;k <= 90;k++)
+			{
+				Word += char(i) ;
+				Word += char(j);
+				Word += char(k);
+				cout <<"\Trail ["<<Counter<<"]" << Word << endl;
+				if (Word == PassWord) {
+					cout << "\nPassWord is          : " << Word;
+					cout << "\nPassWord found after : " << Counter << " Trial(s)";
+					return;
+				}
+				Word = "";
+				Counter++;
+			}
+		}
+		
+    }
+}
+int main()
+{
+	GussPassWord(ReadPassWordAllCapital());
+	
+}
+_________Problem[18]_________:
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
+string ReadText() {
+	string Text = "";
+	cout << "\nEnter the text : " << endl;
+	getline(cin, Text);
+	return Text;
+}
+string  TextAfterEncryption(string Text,short EncryptionKey) {
+	for (short i = 0;i < Text.length();i++)
+	{
+		Text[i] = char(int(Text[i]) + EncryptionKey);
+	}
+	return Text;
+
+}
+string TextAfterDecryPtion(string Text, short EncryptionKey) {
+	for (short i = 0;i < Text.length();i++)
+	{
+		Text[i] = char(int(Text[i]) -EncryptionKey);
+	}
+	return Text;
+}
+void PrintResult(string Text,short EncryptionKey) {
+	Text = TextAfterEncryption(Text, EncryptionKey);
+	cout << "\nText after encryption : " << Text << endl;
+	cout << "\nText after decryption : " << TextAfterDecryPtion(Text, EncryptionKey);
+}
+int main()
+{
+	PrintResult(ReadText(), 2);
+	
+}
+
+_________Problem[19]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+string ReadText() {
+	string Text = "";
+	cout << "\nEnter the text : " << endl;
+	getline(cin, Text);
+	return Text;
+}
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+int main()
+{
+	srand((unsigned)time(NULL));
+	cout << RandomNumber(20, 30);
+	
+}
+_________Problem[20]_________:
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+enum enCharTypes { enCapitalLetter = 1,enSmallLetter=2,enDegit=3,enSpecialCharacter=4 };
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+char GenerateChar(enCharTypes CharacterType) {
+	switch (CharacterType) {
+	case enCapitalLetter:
+		return char(RandomNumber(65, 90));
+	case enSmallLetter:
+		return char(RandomNumber(97, 122));
+	case enSpecialCharacter:
+		return char(RandomNumber(33, 46));
+	case enDegit:
+		return char(RandomNumber(48, 57));
+	}
+}
+int main()
+{
+	srand((unsigned)time(NULL));
+	cout << "\nthis a capital letter : " << GenerateChar(enCapitalLetter);
+	cout << "\nthis a small letter   : " << GenerateChar(enSmallLetter);
+	cout << "\nthis a Special Char   : " << GenerateChar(enSmallLetter);
+	cout << "\nthis a degit          : " << GenerateChar(enDegit);
+	
+}
+_________Problem[21]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+enum enCharTypes { enCapitalLetter = 1,enSmallLetter=2,enDegit=3,enSpecialCharacter=4 };
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+char GenerateChar(enCharTypes& CharacterType) {
+	switch (CharacterType) {
+	case enCapitalLetter:
+		return char(RandomNumber(65, 90));
+	case enSmallLetter:
+		return char(RandomNumber(97, 122));
+	case enSpecialCharacter:
+		return char(RandomNumber(33, 46));
+	case enDegit:
+		return char(RandomNumber(48, 57));
+	}
+}
+string GeneratWord(enCharTypes&CharacterType) {
+	string Word = "";
+	for (short Counter = 1;Counter <= 4;Counter++)
+		Word += GenerateChar(CharacterType);
+	return Word;
+}
+string GeneratKey(enCharTypes &CharType) {
+	string Key = "";
+	Key += GeneratWord(CharType) +'-';
+	Key += GeneratWord(CharType) + '-';
+	Key += GeneratWord(CharType) + '-';
+	Key += GeneratWord(CharType) ;
+	return Key;
+}
+void PrintKeys(enCharTypes CharType, short NumberOfKeys) {
+	for (short Counter = 1;Counter <= NumberOfKeys;Counter++)
+	{
+		cout << "\nKey ["<<Counter<<"]  : " << GeneratKey(CharType);
+	}
+}
+int main()
+{
+	PrintKeys(enCharTypes::enCapitalLetter,10);
+	
+	
+}
+_________Problem[22]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+short ReadNumberOfInputes(string Message) {
+	short Number = 0;
+	do {
+		cout << endl << Message << endl;
+		cin >> Number;
+	} while (Number <= 0 || Number > 20);
+	return Number;
+}
+int ReadNumberToBeChecked(string Message) {
+	int Number = 0;
+	
+		cout << endl << Message << endl;
+		cin >> Number;
+	
+	return Number;
+}
+void ReadElements(int Arr[], short &Length) {
+	for (short i = 0;i < Length;i++) {
+		cout << "\nEnter element [" << i + 1 << "] : ";
+		cin >> Arr[i];
+	}
+}
+short CheckTheFrequencyOfTheNumberInArray(int Arr[], short& Length, int& NumberToCheck) {
+	short Frequency = 0;
+	for (short i = 0;i < Length;i++)
+	{
+		if (Arr[i] == NumberToCheck)
+			Frequency++;
+	}
+	return Frequency;
+}
+void StartProgramme() {
+	short NumberOfInputs = ReadNumberOfInputes("Enter the number of elements you want to enter : ");
+	int Arr[20];
+	ReadElements(Arr, NumberOfInputs);
+	int NumberToCheck = ReadNumberToBeChecked("Enter the number you want to check : ");
+	short Frequency = CheckTheFrequencyOfTheNumberInArray(Arr, NumberOfInputs, NumberToCheck);
+	cout << "\nThe number " << NumberToCheck << " is repeated in the elements for " << Frequency <<"Time(s)"<< endl;
+
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[23]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadAmountOfNumber() {
+	short Amount = 0;
+	do
+	{
+		cout << "\nHow many Randome Numbers you want to grenerate ? ";
+		cin >> Amount;
+	} while (Amount <= 0 || Amount > 100);
+	return Amount;
+}
+void FillArrayWithRandomNumbers(int Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+
+}
+void PrintArray(int Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadAmountOfNumber();
+	int Arr[100];
+	FillArrayWithRandomNumbers(Arr, Length);
+	cout << "\nThe random numbers are : \n";
+	PrintArray(Arr, Length);
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[24]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadAmountOfNumber() {
+	short Amount = 0;
+	do
+	{
+		cout << "\nHow many Randome Numbers you want to grenerate ? ";
+		cin >> Amount;
+	} while (Amount <= 0 || Amount > 100);
+	return Amount;
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+
+}
+short GetMaxNumberInArray(short Arr[], short& Length) {
+	short Max = Arr[0];
+	for (short i = 1;i < Length;i++)
+	{
+		if (Arr[i] > Max)
+			Max = Arr[i];
+	}
+	return Max;
+}
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadAmountOfNumber();
+	short Arr[100];
+	FillArrayWithRandomNumbers(Arr, Length);
+	cout << "\nThe random numbers are : \n";
+	PrintArray(Arr, Length);
+	cout << "\nThe max number in the array is : " << GetMaxNumberInArray(Arr, Length);
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[25]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadAmountOfNumber() {
+	short Amount = 0;
+	do
+	{
+		cout << "\nHow many Randome Numbers you want to grenerate ? ";
+		cin >> Amount;
+	} while (Amount <= 0 || Amount > 100);
+	return Amount;
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+
+}
+short GetMaxNumberInArray(short Arr[], short& Length) {
+	short Max = Arr[0];
+	for (short i = 1;i < Length;i++)
+	{
+		if (Arr[i] > Max)
+			Max = Arr[i];
+	}
+	return Max;
+}
+short GetMinNumber(short Arr[], short& Length) {
+	short Min = Arr[0];
+	for (short i = 1;i < Length;i++)
+	{
+		if (Arr[i] < Min)
+			Min = Arr[i];
+	}
+	return Min;
+}
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadAmountOfNumber();
+	short Arr[100];
+	FillArrayWithRandomNumbers(Arr, Length);
+	cout << "\nThe random numbers are : \n";
+	PrintArray(Arr, Length);
+	cout << "\nThe Min number in the array is : " << GetMinNumber(Arr, Length);
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[26]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadAmountOfNumber() {
+	short Amount = 0;
+	do
+	{
+		cout << "\nHow many Randome Numbers you want to grenerate ? ";
+		cin >> Amount;
+	} while (Amount <= 0 || Amount > 100);
+	return Amount;
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+
+}
+short SumOfRandomArray(short Arr[], short& Length) {
+	short Sum = 0;
+	for (short i = 0;i < Length;i++)
+	{
+		Sum += Arr[i];
+	}
+	return Sum;
+}
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadAmountOfNumber();
+	short Arr[100];
+	FillArrayWithRandomNumbers(Arr, Length);
+	cout << "\nThe random numbers are : \n";
+	PrintArray(Arr, Length);
+	cout << "\nThe Sum of the random array is : " <<SumOfRandomArray(Arr,Length) ;
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[27]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadAmountOfNumber() {
+	short Amount = 0;
+	do
+	{
+		cout << "\nHow many Randome Numbers you want to grenerate ? ";
+		cin >> Amount;
+	} while (Amount <= 0 || Amount > 100);
+	return Amount;
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+
+}
+short SumOfRandomArray(short Arr[], short& Length) {
+	short Sum = 0;
+	for (short i = 0;i < Length;i++)
+	{
+		Sum += Arr[i];
+	}
+	return Sum;
+}
+float GetAvreagOfRandomArray(short Arr[], short& Length) {
+	return (float)SumOfRandomArray(Arr, Length);
+}
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadAmountOfNumber();
+	short Arr[100];
+	FillArrayWithRandomNumbers(Arr, Length);
+	cout << "\nThe random numbers are : \n";
+	PrintArray(Arr, Length);
+	cout << "\nThe Avreag of the random array is : " << GetAvreagOfRandomArray(Arr,Length) ;
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[28]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadAmountOfNumber() {
+	short Amount = 0;
+	do
+	{
+		cout << "\nHow many Randome Numbers you want to grenerate ? ";
+		cin >> Amount;
+	} while (Amount <= 0 || Amount > 100);
+	return Amount;
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+
+}
+void CopayArray(short OriginalArr[], short CopayArr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		CopayArr[i] = OriginalArr[i];
+}
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadAmountOfNumber();
+	short OriginalArr[100];
+	short CopayArr[100];
+	FillArrayWithRandomNumbers(OriginalArr, Length);
+	CopayArray(OriginalArr, CopayArr, Length);
+	cout << "\nThe original array is    : ";
+	PrintArray(OriginalArr, Length);
+	cout << "\nThe copy of the array is : ";
+	PrintArray(CopayArr, Length);
+	
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[29]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadAmountOfNumber() {
+	short Amount = 0;
+	do
+	{
+		cout << "\nHow many Randome Numbers you want to grenerate ? ";
+		cin >> Amount;
+	} while (Amount <= 0 || Amount > 100);
+	return Amount;
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+
+}
+bool IsPrimeNumber(short& Number) {
+	for (short i = 2;i <= Number / 2;i++)
+	{
+		if (Number % i == 0)
+			return false;
+	}
+	return true;
+}
+void CopyOnlyPrimNumbersInCopyArr(short OriginalArr[], short CopyArr[], short& OriginalArrLength,short&CopyArrLength) {
+	for (short i = 0;i < OriginalArrLength;i++)
+	{
+		if (IsPrimeNumber(OriginalArr[i]))
+		{
+			CopyArr[CopyArrLength] = OriginalArr[i];
+			CopyArrLength++;
+		}
+	}
+}
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadAmountOfNumber();
+	short CopyArrLength = 0;
+	short OriginalArr[100];
+	short CopayArr[100];
+	FillArrayWithRandomNumbers(OriginalArr, Length);
+	CopyOnlyPrimNumbersInCopyArr(OriginalArr, CopayArr, Length, CopyArrLength);
+	cout << "\nThe original array is    : ";
+	PrintArray(OriginalArr, Length);
+	cout << "\nThe Prim Number Copied in original array : ";
+	PrintArray(CopayArr, CopyArrLength);
+	
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[30]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadAmountOfNumber() {
+	short Amount = 0;
+	do
+	{
+		cout << "\nHow many Randome Numbers you want to grenerate ? ";
+		cin >> Amount;
+	} while (Amount <= 0 || Amount > 100);
+	return Amount;
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+
+}
+
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void SumOfTowArraysInThirdArray(short Arr1[], short Arr2[],short Arr3[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		Arr3[i] = Arr1[i] + Arr2[i];
+	}
+}
+void StartProgramme() {
+	short Length = ReadAmountOfNumber();
+	
+	short FirstArray[100];
+	short SecondArray[100];
+	short ThirdArray[100];
+	FillArrayWithRandomNumbers(FirstArray, Length);
+	FillArrayWithRandomNumbers(SecondArray, Length);
+	SumOfTowArraysInThirdArray(FirstArray, SecondArray, ThirdArray,Length);
+	cout << "\nThe First Array Elements are : ";
+	PrintArray(FirstArray, Length);
+	cout << "\nThe Second Array Elements are : ";
+	PrintArray(SecondArray, Length);
+	cout << "\nThe Sum of tow Arraies in Third Array  Elements are : ";
+	PrintArray(ThirdArray, Length);
+	
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[31]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadN() {
+	short N = 0;
+	do
+	{
+		cout << "\nEnter The number you want to stop while generating  : ";
+		cin >> N;
+	} while (N <= 0 );
+	return N;
+}
+void FillArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		Arr[i] = i + 1;
+	}
+}
+void SwapNumbers(short& Number1, short& Number2) {
+	short Temp = Number1;
+	Number1 = Number2;
+	Number2 = Temp;
+}
+void ShufflArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		SwapNumbers(Arr[i], Arr[RandomNumber(0, Length - 1)]);
+}
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadN();
+	short Arr[100];
+	FillArray(Arr, Length);
+	cout << "\nArray befor shuffling : ";
+	PrintArray(Arr, Length);
+	ShufflArray(Arr, Length);
+	cout << "\nArray After Shuffling : ";
+	PrintArray(Arr, Length);
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[32]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+short ReadLength() {
+	short Length = 0;
+	do
+	{
+		cout << "\nEnter the length of the array : ";
+		cin >> Length;
+	} while (Length <= 0 || Length > 100);
+	return Length;
+}
+void FillArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		Arr[i] = i + 1;
+	}
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+}
+void CopyArrayInReverseOrder(short OriginalArr[],short CopyArr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		CopyArr[Length - 1 - i] = OriginalArr[i];
+	}
+}
+void PrintArray(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		cout << Arr[i] << " ";
+}
+void StartProgramme() {
+	short Length = ReadLength();
+	short OriginalArr[100];
+	short CopyArr[100];
+	FillArrayWithRandomNumbers(OriginalArr, Length);
+	cout << "\nThe original array is : ";
+	PrintArray(OriginalArr, Length);
+	CopyArrayInReverseOrder(OriginalArr, CopyArr, Length);
+	cout << "\nAfter coping array in the reversed order : ";
+	PrintArray(CopyArr, Length);
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[33]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+enum enCharTypes { enCapitalLetter = 1, enSmallLetter = 2, enDegit = 3, enSpecialCharacter = 4 };
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+char GenerateChar(enCharTypes& CharacterType) {
+	switch (CharacterType) {
+	case enCapitalLetter:
+		return char(RandomNumber(65, 90));
+	case enSmallLetter:
+		return char(RandomNumber(97, 122));
+	case enSpecialCharacter:
+		return char(RandomNumber(33, 46));
+	case enDegit:
+		return char(RandomNumber(48, 57));
+	}
+}
+string GeneratWord(enCharTypes& CharacterType) {
+	string Word = "";
+	for (short Counter = 1;Counter <= 4;Counter++)
+		Word += GenerateChar(CharacterType);
+	return Word;
+}
+string GeneratKey(enCharTypes& CharType) {
+	string Key = "";
+	Key += GeneratWord(CharType) + '-';
+	Key += GeneratWord(CharType) + '-';
+	Key += GeneratWord(CharType) + '-';
+	Key += GeneratWord(CharType);
+	return Key;
+}
+void FillArrayWithKeys(string Arr[], short& Length, enCharTypes CharType) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = GeneratKey(CharType);
+}
+short ReadLength() {
+	short Length = 0;
+	do
+	{
+		cout << "\nHow many keys you want to generat : ";
+		cin >> Length;
+	} while (Length <= 0 || Length > 100);
+	return Length;
+}
+void PrintArray(string Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		cout << "\nKey [" << i + 1 << "] : " << Arr[i] << endl;
+	}
+}
+void StartProgramme() {
+	short Length = ReadLength();
+	string KeysArray[100];
+	FillArrayWithKeys(KeysArray, Length,enCharTypes::enCapitalLetter);
+	cout << "\nThe generated keys : \n";
+	PrintArray(KeysArray, Length);
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[34]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+enum enCharTypes { enCapitalLetter = 1, enSmallLetter = 2, enDegit = 3, enSpecialCharacter = 4 };
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+
+short ReadPositvNumber(string Message) {
+	short Number = 0;
+	do
+	{
+		cout <<Message;
+		cin >> Number;
+	} while (Number <= 0 || Number > 100);
+	return Number;
+}
+void FillArrayWithRandomNumber(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		Arr[i] = RandomNumber(1, 100);
+	}
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+short CheckForNumber(short Arr[], short& Length, short& Number) {
+	for (short i = 0;i < Length;i++)
+	{
+		if (Arr[i] == Number)
+			return i;
+	}
+	return -1;
+}
+void PrintFinalResult(short NumberIndex, short& Number) {
+	cout << "\nthe number you are looking for is : " << Number << endl;
+	if (NumberIndex == -1)
+	{
+		cout << "\nThe number dosn't exist in the array : ";
+	}
+	else
+	{
+		cout << "\nThe number exist at position  : " << NumberIndex;
+		cout << "\nThe order of the number is    : " << NumberIndex + 1;
+	}
+}
+void StartProgramme() {
+	short Length = ReadPositvNumber("\nEnter Hou many numbers you want to generat : ");
+	short Arr[100];
+	FillArrayWithRandomNumber(Arr, Length);
+	PrintArray(Arr, Length);
+	short Number = ReadPositvNumber("\nEnter the number you are looking for : ");
+	PrintFinalResult(CheckForNumber(Arr, Length, Number), Number);
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[35]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+enum enCharTypes { enCapitalLetter = 1, enSmallLetter = 2, enDegit = 3, enSpecialCharacter = 4 };
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+
+short ReadPositvNumber(string Message) {
+	short Number = 0;
+	do
+	{
+		cout <<Message;
+		cin >> Number;
+	} while (Number <= 0 || Number > 100);
+	return Number;
+}
+void FillArrayWithRandomNumber(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		Arr[i] = RandomNumber(1, 100);
+	}
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+bool DoseNumberExists(short Arr[], short& Length, short Number) {
+	for (short i = 0;i < Length;i++)
+	{
+		if (Arr[i] == Number)
+			return true;
+	}
+	return false;
+}
+void StartProgramme() {
+	short Length = ReadPositvNumber("\nEnter Hou many numbers you want to generat : ");
+	short Arr[100];
+	FillArrayWithRandomNumber(Arr, Length);
+	PrintArray(Arr, Length);
+	if (DoseNumberExists(Arr, Length, ReadPositvNumber("\nEnter the number you want to check if it exists : ")))
+	{
+		cout << "\nYes,the number exists :-)";
+	}
+	else
+	{
+		cout << "\nNo,the number dosn't exists :-(";
+	}
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[36]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+enum enCharTypes { enCapitalLetter = 1, enSmallLetter = 2, enDegit = 3, enSpecialCharacter = 4 };
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+
+short ReadPositvNumber(string Message) {
+	short Number = 0;
+	do
+	{
+		cout <<Message;
+		cin >> Number;
+	} while (Number <= 0 || Number > 100);
+	return Number;
+}
+
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+void FillArrayWithUserInput(short Arr[], short& Length) {
+	char AddMore = 'Y';
+	do {
+		Arr[Length] = ReadPositvNumber("\nEnter A number : ");
+		Length++;
+		cout << "\nDo you want to add more numbers ? [Y/N] ";
+		cin >> AddMore;
+	} while (toupper(AddMore) == 'Y');
+}
+void StartProgramme() {
+	short Length = 0;
+	short Arr[100];
+	FillArrayWithUserInput(Arr, Length);
+	PrintArray(Arr, Length);
+	
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[37]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+enum enCharTypes { enCapitalLetter = 1, enSmallLetter = 2, enDegit = 3, enSpecialCharacter = 4 };
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+
+short ReadPositvNumber(string Message) {
+	short Number = 0;
+	do
+	{
+		cout <<Message;
+		cin >> Number;
+	} while (Number <= 0 || Number > 100);
+	return Number;
+}
+
+void FillArrayWithRandomNumbers(short Arr1[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		Arr1[i] = RandomNumber(1, 100);
+	}
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+void AddArrayElement(short Arr2[], short& Arr2Length,short&Number) {
+	Arr2[Arr2Length] = Number;
+	Arr2Length++;
+}
+void CopyArrayElements(short Arr1[], short Arr2[], short& Arr1Length, short& Arr2Length) {
+	for (short i = 0;i < Arr1Length;i++)
+	{
+		AddArrayElement(Arr2, Arr2Length, Arr1[i]);
+	}
+}
+void StartProgramme() {
+	short Arr1Length = ReadPositvNumber("\nEnter the length of the array : ");
+	short Arr2Length = 0;
+	short Arr1[100];
+	short Arr2[100];
+	FillArrayWithRandomNumbers(Arr1, Arr1Length);
+	CopyArrayElements(Arr1,Arr2,Arr1Length, Arr2Length);
+	PrintArray(Arr1, Arr1Length);
+	cout << "\nArray copy : ";
+	PrintArray(Arr2, Arr2Length);
+	
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[38]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+enum enCharTypes { enCapitalLetter = 1, enSmallLetter = 2, enDegit = 3, enSpecialCharacter = 4 };
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+
+short ReadPositvNumber(string Message) {
+	short Number = 0;
+	do
+	{
+		cout <<Message;
+		cin >> Number;
+	} while (Number <= 0 || Number > 100);
+	return Number;
+}
+
+void FillArrayWithRandomNumbers(short Arr1[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		Arr1[i] = RandomNumber(1, 100);
+	}
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+void AddArrayElement(short Arr2[], short& Arr2Length,short&Number) {
+	Arr2[Arr2Length] = Number;
+	Arr2Length++;
+}
+bool IsOddNumber(short& Number) {
+	return(Number % 2 != 0);
+}
+void CopyOddNumbersElements(short Arr1[], short Arr2[], short& Arr1Length, short& Arr2Length) {
+	for (short i = 0;i < Arr1Length;i++)
+	{
+		if(IsOddNumber(Arr1[i]))
+		AddArrayElement(Arr2, Arr2Length, Arr1[i]);
+	}
+}
+void StartProgramme() {
+	short Arr1Length = ReadPositvNumber("\nEnter the length of the array : ");
+	short Arr2Length = 0;
+	short Arr1[100];
+	short Arr2[100];
+	FillArrayWithRandomNumbers(Arr1, Arr1Length);
+	CopyOddNumbersElements(Arr1,Arr2,Arr1Length, Arr2Length);
+	PrintArray(Arr1, Arr1Length);
+	cout << "\nThe copied odd numbers elements  : ";
+	PrintArray(Arr2, Arr2Length);
+	
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[39]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+
+short ReadPositvNumber(string Message) {
+	short Number = 0;
+	do
+	{
+		cout <<Message;
+		cin >> Number;
+	} while (Number <= 0 || Number > 100);
+	return Number;
+}
+
+void FillArrayWithRandomNumbers(short Arr1[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		Arr1[i] = RandomNumber(1, 100);
+	}
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+void AddArrayElement(short Arr2[], short& Arr2Length,short&Number) {
+	Arr2[Arr2Length] = Number;
+	Arr2Length++;
+}
+
+bool IsPrimeNumber(short& Number) {
+	for (short i = 2;i <= Number / 2;i++)
+	{
+		if (Number % i == 0)
+			return false;
+	}
+	return true;
+}
+void CopyPrimeNumbersElements(short Arr1[], short Arr2[], short& Arr1Length, short& Arr2Length) {
+	for (short i = 0;i < Arr1Length;i++)
+	{
+		if(IsPrimeNumber(Arr1[i]))
+		AddArrayElement(Arr2, Arr2Length, Arr1[i]);
+	}
+}
+void StartProgramme() {
+	short Arr1Length = ReadPositvNumber("\nEnter the length of the array : ");
+	short Arr2Length = 0;
+	short Arr1[100];
+	short Arr2[100];
+	FillArrayWithRandomNumbers(Arr1, Arr1Length);
+	CopyPrimeNumbersElements(Arr1,Arr2,Arr1Length, Arr2Length);
+	PrintArray(Arr1, Arr1Length);
+	cout << "\nThe copied Prime numbers elements  : ";
+	PrintArray(Arr2, Arr2Length);
+	
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[40]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+void GetArrayHardCoded(short Arr[]) {
+	Arr[0] = 10;
+	Arr[1] = 10;
+	Arr[2] = 10;
+	Arr[3] = 50;
+	Arr[4] = 50;
+	Arr[5] = 70;
+	Arr[6] = 70;
+	Arr[7] = 70;
+	Arr[8] = 30;
+	Arr[9] = 30;
+}
+bool DoseNumberExists(short Arr2[], short& Arr2Length,short &Number) {
+	for (short i = 0;i < Arr2Length;i++)
+	{
+		if (Arr2[i] == Number)
+			return true;
+	}
+	return false;
+}
+void AddArrayElements(short Arr2[], short& Arr2Length, short& Number) {
+	Arr2[Arr2Length] = Number;
+	Arr2Length++;
+}
+void CopyDistinctNumbers(short Arr1[],short Arr2[], short& Arr1Length, short& Arr2Length) {
+	for (short i = 0;i < Arr1Length;i++)
+	{
+		if (!DoseNumberExists(Arr2, Arr2Length, Arr1[i]))
+			AddArrayElements(Arr2, Arr2Length, Arr1[i]);
+	}
+}
+void StartProgramme() {
+	short Arr1[10] ;
+	short Arr2[10];
+	short Arr1Length = 10;
+	short Arr2Length = 0;
+	GetArrayHardCoded(Arr1);
+	PrintArray(Arr1, Arr1Length);
+	CopyDistinctNumbers(Arr1, Arr2, Arr1Length, Arr2Length);
+	cout << "\nthe distinct array element are : ";
+	PrintArray(Arr2, Arr2Length);
+
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[41]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+void GetArrayHardCoded(short Arr[]) {
+	Arr[0] = 10;
+	Arr[1] = 20;
+	Arr[2] = 30;
+	Arr[3] = 30;
+	Arr[4] = 20;
+	Arr[5] = 10;
+	
+}
+bool IsArrayPalindrom(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+	{
+		if (Arr[i] != Arr[Length - 1 - i])
+			return false;
+	}
+	return true;
+}
+void StartProgramme() {
+	short Arr[6];
+	short Length = 6;
+	GetArrayHardCoded(Arr);
+	PrintArray(Arr, Length);
+	if (IsArrayPalindrom(Arr, Length))
+		cout << "\nYes,the array is palindrom";
+	else
+		cout << "\nNo,the array is not palindrom";
+
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[42]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+short ReadLength() {
+	short Length = 0;
+	do {
+		cout << "\nEnter the length of the array : ";
+		cin >> Length;
+	} while (Length <= 0 || Length > 100);
+	return Length;
+}
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+bool IsOddNumber(short& Number) {
+	return (Number % 2 != 0);
+}
+short CountOddNumbers(short Arr[], short& Length) {
+	short Counter = 0;
+	for (short i = 0;i < Length;i++)
+	{
+		if (IsOddNumber(Arr[i]))
+			Counter++;
+	}
+	return Counter;
+}
+void StartProgramme() {
+	short Arr[100];
+	short Length = ReadLength();
+	FillArrayWithRandomNumbers(Arr, Length);
+	PrintArray(Arr,Length);
+	cout << "\nThe number of odd numbers in the array is : " << CountOddNumbers(Arr, Length);
+
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[43]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+short ReadLength() {
+	short Length = 0;
+	do {
+		cout << "\nEnter the length of the array : ";
+		cin >> Length;
+	} while (Length <= 0 || Length > 100);
+	return Length;
+}
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(1, 100);
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+bool IsEvenNumber(short& Number) {
+	return (Number % 2 == 0);
+}
+short CountEvenNumbers(short Arr[], short& Length) {
+	short Counter = 0;
+	for (short i = 0;i < Length;i++)
+	{
+		if (IsEvenNumber(Arr[i]))
+			Counter++;
+	}
+	return Counter;
+}
+void StartProgramme() {
+	short Arr[100];
+	short Length = ReadLength();
+	FillArrayWithRandomNumbers(Arr, Length);
+	PrintArray(Arr,Length);
+	cout << "\nThe number of Even numbers in the array is : " << CountEvenNumbers(Arr, Length);
+
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[44]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+short ReadLength() {
+	short Length = 0;
+	do {
+		cout << "\nEnter the length of the array : ";
+		cin >> Length;
+	} while (Length <= 0 || Length > 100);
+	return Length;
+}
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(-100, 100);
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+bool IsEvenNumber(short& Number) {
+	return (Number % 2 == 0);
+}
+short CountPositiveNumbers(short Arr[], short& Length) {
+	short Counter = 0;
+	for (short i = 0;i < Length;i++)
+	{
+		if (Arr[i]>=0)
+			Counter++;
+	}
+	return Counter;
+}
+void StartProgramme() {
+	short Arr[100];
+	short Length = ReadLength();
+	FillArrayWithRandomNumbers(Arr, Length);
+	PrintArray(Arr,Length);
+	cout << "\nThe number of Positive numbers in the array is : " << CountPositiveNumbers(Arr, Length);
+
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[45]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+short ReadLength() {
+	short Length = 0;
+	do {
+		cout << "\nEnter the length of the array : ";
+		cin >> Length;
+	} while (Length <= 0 || Length > 100);
+	return Length;
+}
+int RandomNumber(int From, int To)
+{
+	// Generate a random number between 0 and (To - From) using rand(),
+	// then add From to shift the range to [From, To].
+	int randNum = rand() % (To - From + 1) + From;
+	return randNum;  // Return the generated random number.
+}
+void FillArrayWithRandomNumbers(short Arr[], short& Length) {
+	for (short i = 0;i < Length;i++)
+		Arr[i] = RandomNumber(-100, 100);
+}
+void PrintArray(short Arr[], short& Length) {
+	cout << "\nThe array elements are : ";
+	for (short i = 0;i < Length;i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+bool IsEvenNumber(short& Number) {
+	return (Number % 2 == 0);
+}
+short CountNegativeNumbers(short Arr[], short& Length) {
+	short Counter = 0;
+	for (short i = 0;i < Length;i++)
+	{
+		if (Arr[i]<0)
+			Counter++;
+	}
+	return Counter;
+}
+void StartProgramme() {
+	short Arr[100];
+	short Length = ReadLength();
+	FillArrayWithRandomNumbers(Arr, Length);
+	PrintArray(Arr,Length);
+	cout << "\nThe number of Negative numbers in the array is : " << CountNegativeNumbers(Arr, Length);
+
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[46]_________:
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+int ReadNumber() {
+	int Number = 0;
+	cout << "\nEnter a number : ";
+	cin >> Number;
+	return Number;
+}
+int MyAbs(int Number) {
+	return (Number < 0) ? -1 * Number : Number;
+}
+void StartProgramme() {
+	cout << "\n My ABS function is : " << MyAbs(ReadNumber());
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[47]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+float ReadNumber() {
+	float Number = 0;
+	cout << "\nEnter a number : ";
+	cin >> Number;
+	return Number;
+}
+int MyRound(float Number) {
+	if (Number > 0)
+	{
+		if ((Number - int(Number)) > 0.5)
+			Number++;
+	}
+	if (Number < 0)
+	{
+		if ((Number - int(Number)) < -0.5)
+			 Number--;
+	}
+	return Number;
+}
+void StartProgramme() {
+	cout << "\n MyRound function is : " << MyRound(ReadNumber());
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[48]_________:
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+float ReadNumber() {
+	float Number = 0;
+	cout << "\nEnter a number : ";
+	cin >> Number;
+	return Number;
+}
+int MyFloor(float Number) {
+	if (Number > 0)
+		Number = int(Number);
+	else
+		Number--;
+	return Number;
+}
+void StartProgramme() {
+	cout << "\n MyFloor function is : " << MyFloor(ReadNumber());
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[49]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+float ReadNumber() {
+	float Number = 0;
+	cout << "\nEnter a number : ";
+	cin >> Number;
+	return Number;
+}
+int MyCiel(float Number) {
+	if (Number > 0)
+		Number++;
+	else
+		int(Number);
+	return Number;
+}
+void StartProgramme() {
+	cout << "\n MyFloor function is : " << MyCiel(ReadNumber());
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
+_________Problem[50]_________:
+
+#include <string>
+//#include<math.h>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+float ReadNumber() {
+	float Number = 0;
+	cout << "\nEnter a number : ";
+	cin >> Number;
+	return Number;
+}
+int MySqrt(int Number) {
+	Number = pow(Number, 0.5);
+	return Number;
+}
+void StartProgramme() {
+	cout << "\n Sqrt function is : " << MySqrt(ReadNumber());
+}
+int main()
+{
+	StartProgramme();
+	
+	
+}
